@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\src\game\app.cpp" />
+    <ClCompile Include="..\..\src\game\load-map-phase.cpp" />
+    <ClCompile Include="..\..\src\game\main.cpp" />
+    <ClCompile Include="..\..\src\game\main-menu-phase.cpp" />
+    <ClCompile Include="..\..\src\game\play-phase.cpp" />
+    <ClCompile Include="..\..\src\game\shutdown-phase.cpp" />
+    <ClCompile Include="..\..\src\game\startup-phase.cpp" />
+    <ClCompile Include="..\..\src\game\unload-map-phase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\game\app.hpp" />
+    <ClInclude Include="..\..\src\game\base-phase.hpp" />
+    <ClInclude Include="..\..\src\game\load-map-phase.hpp" />
+    <ClInclude Include="..\..\src\game\main-menu-phase.hpp" />
+    <ClInclude Include="..\..\src\game\play-phase.hpp" />
+    <ClInclude Include="..\..\src\game\shutdown-phase.hpp" />
+    <ClInclude Include="..\..\src\game\startup-phase.hpp" />
+    <ClInclude Include="..\..\src\game\unload-map-phase.hpp" />
+  </ItemGroup>
+</Project>

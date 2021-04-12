@@ -1,8 +1,12 @@
-build/*
+# do not store builds in repo
+build/
+# created by shared folder from virtualbox
+/System Volume Information
 
 # IDEs
 .vs/
 .vscode/
 
-# macOS
+# OSs
 .DS_Store
+Thumbs.db
