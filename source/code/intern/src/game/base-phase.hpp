@@ -2,8 +2,9 @@
 
 namespace game {
 
-struct Phase {
-    enum {
+struct PhaseKind {
+    typedef enum {
+        Exit = -1,
         Startup,
         MainMenu,
         LoadMap,
@@ -11,15 +12,14 @@ struct Phase {
         UnloadMap,
         Shutdown,
         Length,
-        Exit = -1,
-    };
+    } Enum;
 };
 
 class BasePhase {
   public:
     virtual void onEnter() = 0;
     virtual void onLeave() = 0;
-    virtual int onRun() = 0;
+    virtual PhaseKind::Enum onRun() = 0;
 };
 
 } // namespace game

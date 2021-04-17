@@ -1,6 +1,6 @@
 #include "gui/main-menu-phase.hpp"
 
-#include "data/event-system.hpp"
+#include "core/event-system.hpp"
 #include "game/base-phase.hpp"
 
 using namespace gui;
@@ -19,11 +19,11 @@ int MainMenuPhase::getSelectedLabel() const { return selectedLabel; }
 // -----------------------------------------------------------------------------
 
 void MainMenuPhase::onEnter() {
-    data::EventSystem::getInstance().addEventListener(*this);
+    core::EventSystem::getInstance().addEventListener(*this);
 }
 
 void MainMenuPhase::onLeave() {
-    data::EventSystem::getInstance().removeEventListener(*this);
+    core::EventSystem::getInstance().removeEventListener(*this);
 }
 
 int MainMenuPhase::onRun() {
@@ -35,9 +35,15 @@ int MainMenuPhase::onRun() {
         selectedLabel = 1;
     }
 
-    return game::Phase::MainMenu;
+    arrowUpPressed = false;
+    arrowDownPressed = false;
+
+    return game::PhaseKind::MainMenu;
 }
 
 // -----------------------------------------------------------------------------
 
-void MainMenuPhase::onEvent(data::Event &event) {}
+void MainMenuPhase::onEvent(core::Event &event) {
+    // if key event up => arrowUpPressed = true
+    // if key event down => arrowDownPressed = true
+}

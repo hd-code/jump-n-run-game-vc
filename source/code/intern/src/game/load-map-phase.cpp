@@ -1,5 +1,4 @@
 #include "game/load-map-phase.hpp"
-
 #include <iostream>
 
 using namespace game;
@@ -19,7 +18,7 @@ void LoadMapPhase::onLeave() {
     std::cout << "LoadMapPhase onLeave" << std::endl;
 }
 
-int LoadMapPhase::onRun() {
+PhaseKind::Enum LoadMapPhase::onRun() {
     std::cout << "LoadMapPhase onRun" << std::endl;
-    return Phase::Play;
+    return PhaseKind::Play;
 }

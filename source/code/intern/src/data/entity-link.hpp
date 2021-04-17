@@ -12,18 +12,20 @@ class EntityLink {
     Entity &getEntity();
     const Entity &getEntity() const;
 
-    // The link will be appended to the anchor
-    void link(EntityLink &anchor);
-    void unlink();
+    EntityLink &getPrevious();
+    const EntityLink &getPrevious() const;
+
+    EntityLink &getNext();
+    const EntityLink &getNext() const;
 
     bool isLinked() const;
 
-    EntityLink &getPrevious();
-    EntityLink &getNext();
+    void link(EntityLink &anchor);
+    void unlink();
 
   private:
-    EntityLink *previous;
-    EntityLink *next;
+    EntityLink *previous_;
+    EntityLink *next_;
 };
 
 } // namespace data

@@ -1,10 +1,13 @@
 #pragma once
 
+#include "data/entity-kind.hpp"
+
 // -----------------------------------------------------------------------------
 
 namespace core {
-struct AABB;
-}
+class AABB;
+class Vector2;
+} // namespace core
 
 namespace data {
 
@@ -21,12 +24,32 @@ class Map {
     void removeEntity(Entity &entity);
     void moveEntity(Entity &entity);
 
-    Sector *getSector(unsigned int x, unsigned int y);
+    EntityIterator begin(const core::AABB &aabb);
+    EntityIterator begin(const core::AABB &aabb, EntityKind::Enum kind);
+
+    EntityIterator next(EntityIterator current, const core::AABB &aabb);
+    EntityIterator next(EntityIterator current, const core::AABB &aabb,
+                        EntityKind::Enum kind);
+
+    EntityIterator end();
 
   private:
-    unsigned int numOfSectorsX;
-    unsigned int numOfSectorsY;
-    Sector **sectors;
+    Sector &getSector(const core::Vector2 &position);
+
+    unsigned int getSectorIndex(unsigned int x, unsigned int y);
+    unsigned int getSectorIndex(const core::Vector2 &position);
+
+    unsigned int getFirstSectorIndex(const core::AABB &aabb);
+    unsigned int getLastSectorIndex(const core::AABB &aabb);
+    unsigned int getNextSectorIndex(const core::AABB &aabb,
+                                    unsigned int currentIndex);
+
+    static unsigned int calcNumOfSectors(float widthOrHeight);
+    static unsigned int calcIndex(float xOrY);
+
+    unsigned int numOfSectorsX_;
+    unsigned int numOfSectorsY_;
+    Sector *sectors_;
 };
 
 } // namespace data

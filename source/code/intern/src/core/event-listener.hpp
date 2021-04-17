@@ -2,13 +2,13 @@
 
 // -----------------------------------------------------------------------------
 
-namespace data {
+namespace core {
 
 class Event;
 
 class EventListener {
-public:
+  public:
     virtual void onEvent(Event &event) = 0;
 };
 
-} // namespace data
+} // namespace core

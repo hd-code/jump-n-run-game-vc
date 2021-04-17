@@ -3,17 +3,17 @@
 namespace core {
 
 template <class T> class Singleton {
-public:
+  public:
     static T &getInstance() {
         static T instance;
         return instance;
     }
 
-protected:
+  protected:
     Singleton() = default;
     ~Singleton() = default;
 
-private:
+  private:
     Singleton(const T &original) = delete;    // is not implemented
     T &operator=(const T &original) = delete; // is not implemented
 };

@@ -11,7 +11,7 @@ class ShutdownPhase : public core::Singleton<ShutdownPhase>, public BasePhase {
   public:
     void onEnter();
     void onLeave();
-    int onRun();
+    PhaseKind::Enum onRun();
 
   private:
     template <class T> friend class core::Singleton;

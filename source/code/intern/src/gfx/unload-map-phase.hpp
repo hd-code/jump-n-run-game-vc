@@ -7,18 +7,20 @@
 
 namespace gfx {
 
-class ShutdownPhase : public core::Singleton<ShutdownPhase>,
-                      public core::EventListener {
+class UnloadMapPhase : public core::Singleton<UnloadMapPhase>,
+                       public core::EventListener {
   public:
     void onEnter();
     void onLeave();
+
+    void render();
 
     void onEvent(core::Event &event);
 
   private:
     template <class T> friend class core::Singleton;
-    ShutdownPhase();
-    ~ShutdownPhase();
+    UnloadMapPhase();
+    ~UnloadMapPhase();
 };
 
 } // namespace gfx

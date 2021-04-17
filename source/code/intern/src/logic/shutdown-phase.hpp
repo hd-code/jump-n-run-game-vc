@@ -5,13 +5,14 @@
 
 // -----------------------------------------------------------------------------
 
-namespace gfx {
+namespace logic {
 
 class ShutdownPhase : public core::Singleton<ShutdownPhase>,
                       public core::EventListener {
   public:
     void onEnter();
     void onLeave();
+    void onRun();
 
     void onEvent(core::Event &event);
 
@@ -21,4 +22,4 @@ class ShutdownPhase : public core::Singleton<ShutdownPhase>,
     ~ShutdownPhase();
 };
 
-} // namespace gfx
+} // namespace logic

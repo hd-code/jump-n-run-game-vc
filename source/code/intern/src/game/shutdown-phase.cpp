@@ -1,5 +1,4 @@
 #include "game/shutdown-phase.hpp"
-
 #include <iostream>
 
 using namespace game;
@@ -19,7 +18,7 @@ void ShutdownPhase::onLeave() {
     std::cout << "ShutdownPhase onLeave" << std::endl;
 }
 
-int ShutdownPhase::onRun() {
+PhaseKind::Enum ShutdownPhase::onRun() {
     std::cout << "ShutdownPhase onRun" << std::endl;
-    return Phase::Exit;
+    return PhaseKind::Exit;
 }

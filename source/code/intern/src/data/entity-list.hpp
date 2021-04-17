@@ -1,27 +1,30 @@
 #pragma once
 
 #include "data/entity-link.hpp"
-// #include "data/entity.hpp"
 
 namespace data {
 
 class Entity;
+class EntityIterator;
 
 class EntityList {
   public:
     EntityList();
     ~EntityList();
 
-    bool isEmpty() const;
+    bool empty() const;
 
-    void push(Entity &entity);
-    Entity &pop();
+    void push_back(Entity &entity);
+    Entity &pop_back();
 
     void remove(Entity &entity);
     void clear();
 
+    EntityIterator begin();
+    EntityIterator end();
+
   private:
-    EntityLink anchor;
+    EntityLink anchor_;
 };
 
 } // namespace data

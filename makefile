@@ -5,7 +5,7 @@ srcDir = source/code/intern/src
 extDir = source/code/extern/sfml/include
 
 compiler = clang++
-flags = -std=c++11 -Wall
+flags = -std=c++11 -Wall -Wextra
 
 # ------------------------------------------------------------------------------
 

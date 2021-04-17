@@ -4,12 +4,14 @@ using namespace data;
 
 // -----------------------------------------------------------------------------
 
-EntityFolder::EntityFolder(Sector *sector) : sector(sector) {}
-
-EntityFolder::~EntityFolder() { sector = nullptr; }
+EntityFolder::EntityFolder() {}
+EntityFolder::~EntityFolder() { entities_.clear(); }
 
 // -----------------------------------------------------------------------------
 
-void EntityFolder::add(Entity &entity) { entities.push(entity); }
+EntityList &EntityFolder::getEntities() { return entities_; }
 
-void EntityFolder::remove(Entity &entity) { entities.remove(entity); }
+// -----------------------------------------------------------------------------
+
+void EntityFolder::addEntity(Entity &entity) { entities_.push_back(entity); }
+void EntityFolder::removeEntity(Entity &entity) { entities_.remove(entity); }

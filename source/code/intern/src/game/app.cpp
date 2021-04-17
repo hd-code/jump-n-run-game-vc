@@ -1,5 +1,4 @@
 #include "game/app.hpp"
-
 #include "game/load-map-phase.hpp"
 #include "game/main-menu-phase.hpp"
 #include "game/play-phase.hpp"
@@ -8,27 +7,18 @@
 #include "game/unload-map-phase.hpp"
 #include <stdexcept>
 
-// for testing
-#include "gfx/tmp.hpp"
-#include "gui/tmp.hpp"
-#include "logic/tmp.hpp"
-#include <iostream>
-//------------
-
 using namespace game;
 
 // -----------------------------------------------------------------------------
 
-App::App() : currentPhaseIndex(Phase::Startup) {
-    // FRAGE: ist hier ein cleanup überhaupt nötig?
-    phases[Phase::Startup] = &StartupPhase::getInstance();
-    phases[Phase::MainMenu] = &MainMenuPhase::getInstance();
-    phases[Phase::LoadMap] = &LoadMapPhase::getInstance();
-    phases[Phase::Play] = &PlayPhase::getInstance();
-    phases[Phase::UnloadMap] = &UnloadMapPhase::getInstance();
-    phases[Phase::Shutdown] = &ShutdownPhase::getInstance();
-
-    // MainMenuPhase::getInstance().setWindow(window);
+App::App() : phaseIndex_(PhaseKind::Startup) {
+    // FRAGE: ist hier ein cleanup nötig?
+    phases_[PhaseKind::Startup] = &StartupPhase::getInstance();
+    phases_[PhaseKind::MainMenu] = &MainMenuPhase::getInstance();
+    phases_[PhaseKind::LoadMap] = &LoadMapPhase::getInstance();
+    phases_[PhaseKind::Play] = &PlayPhase::getInstance();
+    phases_[PhaseKind::UnloadMap] = &UnloadMapPhase::getInstance();
+    phases_[PhaseKind::Shutdown] = &ShutdownPhase::getInstance();
 }
 
 App::~App() {}
@@ -41,18 +31,11 @@ void App::start(unsigned int width, unsigned int height) {
 
 void App::exit() {
     // window.close();
-
-    // for testing
-    std::cout << "Testing access to other projects:" << std::endl;
-    gfx::sayHello();
-    gui::sayHello();
-    logic::sayHello();
-    //------------
 }
 
 void App::run() {
-    getCurrentPhase()->onEnter();
-    while (currentPhaseIndex != Phase::Exit) {
+    getPhase()->onEnter();
+    while (phaseIndex_ != PhaseKind::Exit) {
         handleEventQueue();
         onRun();
     }
@@ -70,23 +53,23 @@ void App::handleEventQueue() {
 }
 
 void App::onRun() {
-    int nextPhase = getCurrentPhase()->onRun();
-    if (nextPhase != currentPhaseIndex) {
+    PhaseKind::Enum nextPhase = getPhase()->onRun();
+    if (nextPhase != phaseIndex_) {
         onTransition(nextPhase);
     }
 }
 
-void App::onTransition(int nextPhase) {
-    getCurrentPhase()->onLeave();
+void App::onTransition(PhaseKind::Enum nextPhase) {
+    getPhase()->onLeave();
 
-    currentPhaseIndex = nextPhase;
-    if (nextPhase == Phase::Exit) {
+    phaseIndex_ = nextPhase;
+    if (nextPhase == PhaseKind::Exit) {
         return;
     }
 
-    getCurrentPhase()->onEnter();
+    getPhase()->onEnter();
 }
 
 // -----------------------------------------------------------------------------
 
-BasePhase *App::getCurrentPhase() { return phases[currentPhaseIndex]; }
+BasePhase *App::getPhase() const { return phases_[phaseIndex_]; }

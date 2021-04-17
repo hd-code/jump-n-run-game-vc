@@ -1,18 +1,17 @@
 #pragma once
 
 #include "core/singleton.hpp"
-
 #include <list>
 
 // -----------------------------------------------------------------------------
 
-namespace data {
+namespace core {
 
 class Event;
 class EventListener;
 
 class EventSystem : public core::Singleton<EventSystem> {
-public:
+  public:
     void addEvent(Event &event);
     void fireEvent(Event &event);
     void fireEvents();
@@ -20,14 +19,13 @@ public:
     void addEventListener(EventListener &eventListener);
     void removeEventListener(EventListener &eventListener);
 
-private:
+  private:
     template <class T> friend class core::Singleton;
     EventSystem();
     ~EventSystem();
 
-    // TODO: use pool
-    std::list<Event *> events;
-    std::list<EventListener *> eventListeners;
+    std::list<Event *> events_;
+    std::list<EventListener *> eventListeners_;
 };
 
-} // namespace data
+} // namespace core

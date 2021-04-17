@@ -5,20 +5,21 @@
 
 // -----------------------------------------------------------------------------
 
-namespace gfx {
+namespace logic {
 
-class ShutdownPhase : public core::Singleton<ShutdownPhase>,
-                      public core::EventListener {
+class StartupPhase : public core::Singleton<StartupPhase>,
+                     public core::EventListener {
   public:
     void onEnter();
     void onLeave();
+    void onRun();
 
     void onEvent(core::Event &event);
 
   private:
     template <class T> friend class core::Singleton;
-    ShutdownPhase();
-    ~ShutdownPhase();
+    StartupPhase();
+    ~StartupPhase();
 };
 
-} // namespace gfx
+} // namespace logic

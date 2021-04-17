@@ -1,11 +1,12 @@
 #pragma once
 
 #include "core/singleton.hpp"
+#include "data/entity-kind.hpp"
 
 // -----------------------------------------------------------------------------
 
 namespace core {
-struct AABB;
+class AABB;
 }
 
 namespace data {
@@ -13,11 +14,10 @@ namespace data {
 class Entity;
 class EntityIterator;
 class Map;
-class Sector;
 
 class MapSystem : public core::Singleton<MapSystem> {
   public:
-    void initMap(float width, float height);
+    void createMap(float width, float height);
     void destroyMap();
 
     void addEntity(Entity &entity);
@@ -25,10 +25,11 @@ class MapSystem : public core::Singleton<MapSystem> {
     void moveEntity(Entity &entity);
 
     EntityIterator begin(core::AABB &aabb);
-    EntityIterator begin(core::AABB &aabb, int category);
+    EntityIterator begin(core::AABB &aabb, EntityKind::Enum kind);
 
     EntityIterator next(EntityIterator current, core::AABB &aabb);
-    EntityIterator next(EntityIterator current, core::AABB &aabb, int category);
+    EntityIterator next(EntityIterator current, core::AABB &aabb,
+                        EntityKind::Enum kind);
 
     EntityIterator end();
 
@@ -37,7 +38,7 @@ class MapSystem : public core::Singleton<MapSystem> {
     MapSystem();
     ~MapSystem();
 
-    Map *map;
+    Map *map_;
 };
 
 } // namespace data

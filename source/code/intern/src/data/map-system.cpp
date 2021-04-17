@@ -1,9 +1,9 @@
 #include "data/map-system.hpp"
-
 #include "core/aabb.hpp"
 #include "data/entity-iterator.hpp"
+#include "data/entity.hpp"
 #include "data/map.hpp"
-#include <iostream>
+#include <assert.h>
 
 using namespace data;
 
@@ -11,59 +11,76 @@ using namespace data;
 
 MapSystem::MapSystem() {}
 
-MapSystem::~MapSystem() {
-    if (map != nullptr) {
-        delete map;
-    }
-}
+MapSystem::~MapSystem() { destroyMap(); }
 
 // -----------------------------------------------------------------------------
 
-void MapSystem::initMap(float width, float height) {
-    if (map == nullptr) {
-        destroyMap();
-    }
-    map = new Map(width, height);
+void MapSystem::createMap(float width, float height) {
+    destroyMap();
+    map_ = new Map(width, height);
 }
 
-void MapSystem::destroyMap() { delete map; }
+void MapSystem::destroyMap() {
+    if (map_ != nullptr) {
+        delete map_;
+    }
+}
 
 // -----------------------------------------------------------------------------
 
 void MapSystem::addEntity(Entity &entity) {
-    assert(map != nullptr);
-    map->addEntity(entity);
+    assert(map_ != nullptr);
+    map_->addEntity(entity);
 }
 
 void MapSystem::removeEntity(Entity &entity) {
-    assert(map != nullptr);
-    map->removeEntity(entity);
+    assert(map_ != nullptr);
+    map_->removeEntity(entity);
 }
 
 void MapSystem::moveEntity(Entity &entity) {
-    assert(map != nullptr);
-    map->moveEntity(entity);
+    assert(map_ != nullptr);
+    map_->moveEntity(entity);
 }
 
 // -----------------------------------------------------------------------------
 
-EntityIterator MapSystem::begin(core::AABB &aabb) { return end(); }
+EntityIterator MapSystem::begin(core::AABB &aabb) {
+    if (map_ == nullptr) {
+        return EntityIterator();
+    }
+    return map_->begin(aabb);
+}
 
-EntityIterator MapSystem::begin(core::AABB &aabb, int category) {
-    return end();
+EntityIterator MapSystem::begin(core::AABB &aabb, EntityKind::Enum kind) {
+    if (map_ == nullptr) {
+        return EntityIterator();
+    }
+    return map_->begin(aabb, kind);
 }
 
 // -----------------------------------------------------------------------------
 
 EntityIterator MapSystem::next(EntityIterator current, core::AABB &aabb) {
-    return end();
+    if (map_ == nullptr) {
+        return EntityIterator();
+    }
+    return map_->next(current, aabb);
 }
 
 EntityIterator MapSystem::next(EntityIterator current, core::AABB &aabb,
-                               int category) {
-    return end();
+                               EntityKind::Enum kind) {
+    if (map_ == nullptr) {
+        return EntityIterator();
+    }
+    return map_->next(current, aabb, kind);
 }
 
 // -----------------------------------------------------------------------------
 
-EntityIterator MapSystem::end() { return EntityIterator(); }
+EntityIterator MapSystem::end() {
+    if (map_ == nullptr) {
+        return EntityIterator();
+    }
+    return map_->end();
+}

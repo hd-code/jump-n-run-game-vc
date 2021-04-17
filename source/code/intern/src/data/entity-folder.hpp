@@ -10,15 +10,16 @@ class Sector;
 
 class EntityFolder {
   public:
-    EntityFolder(Sector *sector);
+    EntityFolder();
     ~EntityFolder();
 
-    void add(Entity &entity);
-    void remove(Entity &entity);
+    EntityList &getEntities();
+
+    void addEntity(Entity &entity);
+    void removeEntity(Entity &entity);
 
   private:
-    Sector *sector;
-    EntityList entities;
+    EntityList entities_;
 };
 
 } // namespace data

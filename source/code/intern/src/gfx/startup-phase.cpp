@@ -4,7 +4,14 @@ using namespace gfx;
 
 // -----------------------------------------------------------------------------
 
-bool StartupPhase::onRun() {
-    // return AssetSystem::getInstance().loadStaticAssets();
-    return true;
-}
+StartupPhase::StartupPhase() {}
+StartupPhase::~StartupPhase() {}
+
+// -----------------------------------------------------------------------------
+
+void StartupPhase::onEnter() {}
+void StartupPhase::onLeave() {}
+
+// -----------------------------------------------------------------------------
+
+void StartupPhase::onEvent(core::Event &event) {}

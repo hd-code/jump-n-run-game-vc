@@ -1,5 +1,4 @@
 #include "game/main-menu-phase.hpp"
-
 #include <iostream>
 
 using namespace game;
@@ -19,7 +18,7 @@ void MainMenuPhase::onLeave() {
     std::cout << "MainMenuPhase onLeave" << std::endl;
 }
 
-int MainMenuPhase::onRun() {
+PhaseKind::Enum MainMenuPhase::onRun() {
     std::cout << "MainMenuPhase onRun" << std::endl;
-    return Phase::LoadMap;
+    return PhaseKind::LoadMap;
 }

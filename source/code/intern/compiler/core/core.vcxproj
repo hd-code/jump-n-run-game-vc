@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\core\aabb.cpp" />
+    <ClCompile Include="..\..\src\core\event-system.cpp" />
+    <ClCompile Include="..\..\src\core\vector2.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\core\aabb.hpp" />
+    <ClInclude Include="..\..\src\core\event-listener.hpp" />
+    <ClInclude Include="..\..\src\core\event-system.hpp" />
+    <ClInclude Include="..\..\src\core\event.hpp" />
+    <ClInclude Include="..\..\src\core\singleton.hpp" />
+    <ClInclude Include="..\..\src\core\vector2.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -150,13 +163,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\core\aabb.hpp" />
-    <ClInclude Include="..\..\src\core\singleton.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\core\tmp.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

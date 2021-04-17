@@ -19,21 +19,26 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\data\entity-folder.cpp" />
+    <ClCompile Include="..\..\src\data\entity-iterator.cpp" />
+    <ClCompile Include="..\..\src\data\entity-link.cpp" />
+    <ClCompile Include="..\..\src\data\entity-list.cpp" />
+    <ClCompile Include="..\..\src\data\entity.cpp" />
+    <ClCompile Include="..\..\src\data\map-system.cpp" />
+    <ClCompile Include="..\..\src\data\map.cpp" />
+    <ClCompile Include="..\..\src\data\sector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\data\entity-folder.hpp" />
     <ClInclude Include="..\..\src\data\entity-iterator.hpp" />
+    <ClInclude Include="..\..\src\data\entity-kind.hpp" />
     <ClInclude Include="..\..\src\data\entity-link.hpp" />
     <ClInclude Include="..\..\src\data\entity-list.hpp" />
     <ClInclude Include="..\..\src\data\entity.hpp" />
-    <ClInclude Include="..\..\src\data\event-listener.hpp" />
-    <ClInclude Include="..\..\src\data\event-system.hpp" />
-    <ClInclude Include="..\..\src\data\event.hpp" />
+    <ClInclude Include="..\..\src\data\map-system.hpp" />
+    <ClInclude Include="..\..\src\data\map.hpp" />
     <ClInclude Include="..\..\src\data\meta-entity.hpp" />
     <ClInclude Include="..\..\src\data\sector.hpp" />
-    <ClInclude Include="..\..\src\data\world-system.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\data\entity-link.cpp" />
-    <ClCompile Include="..\..\src\data\event-system.cpp" />
-    <ClCompile Include="..\..\src\data\event.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

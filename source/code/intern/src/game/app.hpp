@@ -18,11 +18,11 @@ class App : public core::Singleton<App> {
 
     void handleEventQueue();
     void onRun();
-    void onTransition(int nextPhase);
+    void onTransition(PhaseKind::Enum nextPhase);
 
-    BasePhase *getCurrentPhase();
-    int currentPhaseIndex;
-    BasePhase *phases[Phase::Length];
+    BasePhase *getPhase() const;
+    PhaseKind::Enum phaseIndex_;
+    BasePhase *phases_[PhaseKind::Length];
 };
 
 } // namespace game

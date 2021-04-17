@@ -1,17 +1,12 @@
 #include "data/entity-link.hpp"
-
 #include "data/entity.hpp"
-
 #include <stdlib.h>
 
 using namespace data;
 
 // -----------------------------------------------------------------------------
 
-EntityLink::EntityLink() {
-    previous = this;
-    next = this;
-}
+EntityLink::EntityLink() : previous_(this), next_(this) {}
 
 EntityLink::~EntityLink() {
     if (isLinked()) {
@@ -25,7 +20,7 @@ Entity &EntityLink::getEntity() {
     return *reinterpret_cast<Entity *>(
         reinterpret_cast<ptrdiff_t>(this) -
         (reinterpret_cast<ptrdiff_t>(
-             &(static_cast<Entity *>(nullptr)->*(&Entity::link))) -
+             &(static_cast<Entity *>(nullptr)->*(&Entity::link_))) -
          reinterpret_cast<ptrdiff_t>(static_cast<void *>(nullptr))));
 }
 
@@ -33,9 +28,23 @@ const Entity &EntityLink::getEntity() const {
     return *reinterpret_cast<Entity *>(
         reinterpret_cast<ptrdiff_t>(this) -
         (reinterpret_cast<ptrdiff_t>(
-             &(static_cast<Entity *>(nullptr)->*(&Entity::link))) -
+             &(static_cast<Entity *>(nullptr)->*(&Entity::link_))) -
          reinterpret_cast<ptrdiff_t>(static_cast<void *>(nullptr))));
 }
+
+// -----------------------------------------------------------------------------
+
+EntityLink &EntityLink::getPrevious() { return *previous_; }
+const EntityLink &EntityLink::getPrevious() const { return *previous_; }
+
+// -----------------------------------------------------------------------------
+
+EntityLink &EntityLink::getNext() { return *next_; }
+const EntityLink &EntityLink::getNext() const { return *next_; }
+
+// -----------------------------------------------------------------------------
+
+bool EntityLink::isLinked() const { return previous_ != this && next_ != this; }
 
 // -----------------------------------------------------------------------------
 
@@ -44,27 +53,17 @@ void EntityLink::link(EntityLink &anchor) {
         unlink();
     }
 
-    previous = &anchor;
-    next = anchor.next;
+    previous_ = anchor.previous_;
+    next_ = &anchor;
 
-    previous->next = this;
-    next->previous = this;
+    previous_->next_ = this;
+    next_->previous_ = this;
 }
 
 void EntityLink::unlink() {
-    previous->next = next;
-    next->previous = previous;
+    previous_->next_ = next_;
+    next_->previous_ = previous_;
 
-    previous = this;
-    next = this;
+    previous_ = this;
+    next_ = this;
 }
-
-// -----------------------------------------------------------------------------
-
-bool EntityLink::isLinked() const { return previous != this && next != this; }
-
-// -----------------------------------------------------------------------------
-
-EntityLink &EntityLink::getPrevious() { return *previous; }
-
-EntityLink &EntityLink::getNext() { return *next; }

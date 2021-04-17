@@ -1,5 +1,4 @@
 #include "game/startup-phase.hpp"
-
 #include <iostream>
 
 using namespace game;
@@ -19,7 +18,7 @@ void StartupPhase::onLeave() {
     std::cout << "StartupPhase onLeave" << std::endl;
 }
 
-int StartupPhase::onRun() {
+PhaseKind::Enum StartupPhase::onRun() {
     std::cout << "StartupPhase onRun" << std::endl;
-    return Phase::MainMenu;
+    return PhaseKind::MainMenu;
 }

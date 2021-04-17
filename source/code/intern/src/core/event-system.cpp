@@ -1,9 +1,8 @@
-#include "data/event-system.hpp"
+#include "core/event-system.hpp"
+#include "core/event-listener.hpp"
+#include "core/event.hpp"
 
-#include "data/event-listener.hpp"
-#include "data/event.hpp"
-
-using namespace data;
+using namespace core;
 
 // -----------------------------------------------------------------------------
 
@@ -12,28 +11,29 @@ EventSystem::~EventSystem() {}
 
 // -----------------------------------------------------------------------------
 
-void EventSystem::addEvent(Event &event) { events.push_back(&event); }
+void EventSystem::addEvent(Event &event) { events_.push_back(&event); }
 
 void EventSystem::fireEvent(Event &event) {
-    for (auto eventListener : eventListeners) {
+    for (auto eventListener : eventListeners_) {
         eventListener->onEvent(event);
     }
 }
 
 void EventSystem::fireEvents() {
-    while (events.size() > 0) {
-        Event event = **events.begin();
-        fireEvent(event);
-        events.pop_front();
+    while (events_.size() > 0) {
+        Event *event = events_.front();
+        fireEvent(*event);
+        events_.pop_front();
+        // delete event?
     }
 }
 
 // -----------------------------------------------------------------------------
 
 void EventSystem::addEventListener(EventListener &eventListener) {
-    eventListeners.push_back(&eventListener);
+    eventListeners_.push_back(&eventListener);
 }
 
 void EventSystem::removeEventListener(EventListener &eventListener) {
-    eventListeners.remove(&eventListener);
+    eventListeners_.remove(&eventListener);
 }

@@ -11,7 +11,7 @@ class StartupPhase : public core::Singleton<StartupPhase>, public BasePhase {
   public:
     void onEnter();
     void onLeave();
-    int onRun();
+    PhaseKind::Enum onRun();
 
   private:
     template <class T> friend class core::Singleton;

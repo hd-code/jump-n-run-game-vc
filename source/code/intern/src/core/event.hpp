@@ -2,16 +2,16 @@
 
 // -----------------------------------------------------------------------------
 
-namespace data {
+namespace core {
 
-enum class EventType {
+enum class EventKind {
     Entity,
     Window,
 };
 
 class Event {
-public:
-    EventType getType() const;
+  public:
+    virtual EventKind getType() const = 0;
 };
 
-} // namespace data
+} // namespace core

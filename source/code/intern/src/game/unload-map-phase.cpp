@@ -1,5 +1,4 @@
 #include "game/unload-map-phase.hpp"
-
 #include <iostream>
 
 using namespace game;
@@ -19,7 +18,7 @@ void UnloadMapPhase::onLeave() {
     std::cout << "UnloadMapPhase onLeave" << std::endl;
 }
 
-int UnloadMapPhase::onRun() {
+PhaseKind::Enum UnloadMapPhase::onRun() {
     std::cout << "UnloadMapPhase onRun" << std::endl;
-    return Phase::Shutdown;
+    return PhaseKind::Shutdown;
 }
