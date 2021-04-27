@@ -1,49 +1,64 @@
 #include "gui/main-menu-phase.hpp"
-
-#include "core/event-system.hpp"
-#include "game/base-phase.hpp"
+#include "data/event-system.hpp"
 
 using namespace gui;
 
 // -----------------------------------------------------------------------------
 
 MainMenuPhase::MainMenuPhase()
-    : selectedLabel(0), arrowUpPressed(false), arrowDownPressed(false) {}
+    : selectedLabel_(SelectedLabel::BeginGame), escapePressed_(false),
+      enterPressed_(false) {}
 
 MainMenuPhase::~MainMenuPhase() {}
 
 // -----------------------------------------------------------------------------
 
-int MainMenuPhase::getSelectedLabel() const { return selectedLabel; }
-
-// -----------------------------------------------------------------------------
-
 void MainMenuPhase::onEnter() {
-    core::EventSystem::getInstance().addEventListener(*this);
+    selectedLabel_ = SelectedLabel::BeginGame;
+    escapePressed_ = false;
+    enterPressed_ = false;
+
+    data::EventSystem::getInstance().addEventListener(*this);
 }
 
 void MainMenuPhase::onLeave() {
-    core::EventSystem::getInstance().removeEventListener(*this);
-}
-
-int MainMenuPhase::onRun() {
-    if (arrowUpPressed) {
-        selectedLabel = 0;
-    }
-
-    if (arrowDownPressed) {
-        selectedLabel = 1;
-    }
-
-    arrowUpPressed = false;
-    arrowDownPressed = false;
-
-    return game::PhaseKind::MainMenu;
+    data::EventSystem::getInstance().removeEventListener(*this);
 }
 
 // -----------------------------------------------------------------------------
 
-void MainMenuPhase::onEvent(core::Event &event) {
-    // if key event up => arrowUpPressed = true
-    // if key event down => arrowDownPressed = true
+void MainMenuPhase::onEvent(const data::Event &event) {
+    switch (event.getKind()) {
+    case data::EventKind::UserInput:
+        switch (event.getData().key) {
+        case core::UserInput::Escape:
+            escapePressed_ = true;
+            break;
+        case core::UserInput::Enter:
+            enterPressed_ = true;
+            break;
+        case core::UserInput::Up:
+            selectedLabel_ = SelectedLabel::BeginGame;
+            break;
+        case core::UserInput::Down:
+            selectedLabel_ = SelectedLabel::Exit;
+            break;
+        }
+        break;
+    }
+}
+
+// -----------------------------------------------------------------------------
+
+SelectedLabel::Enum MainMenuPhase::getSelectedLabel() const {
+    return selectedLabel_;
+}
+
+bool MainMenuPhase::beginGame() const {
+    return enterPressed_ && selectedLabel_ == SelectedLabel::BeginGame;
+}
+
+bool MainMenuPhase::exit() const {
+    return escapePressed_ ||
+           enterPressed_ && selectedLabel_ == SelectedLabel::Exit;
 }

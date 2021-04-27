@@ -1,9 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\logic\tmp.cpp" />
+    <ClCompile Include="..\..\src\logic\load-map-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\play-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\shutdown-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\startup-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\unload-map-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\meta-entity-facet.cpp" />
+    <ClCompile Include="..\..\src\logic\meta-entity-facet-system.cpp" />
+    <ClCompile Include="..\..\src\logic\entity-facet.cpp" />
+    <ClCompile Include="..\..\src\logic\entity-facet-system.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\logic\tmp.hpp" />
+    <ClInclude Include="..\..\src\logic\load-map-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\play-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\shutdown-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\startup-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\unload-map-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\entity-facet.hpp" />
+    <ClInclude Include="..\..\src\logic\meta-entity-facet.hpp" />
+    <ClInclude Include="..\..\src\logic\meta-entity-facet-system.hpp" />
+    <ClInclude Include="..\..\src\logic\entity-facet-system.hpp" />
   </ItemGroup>
 </Project>

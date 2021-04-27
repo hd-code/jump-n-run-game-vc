@@ -1,18 +1,18 @@
 #include "game/app.hpp"
+#include "data/event-system.hpp"
+#include "data/event.hpp"
 #include "game/load-map-phase.hpp"
 #include "game/main-menu-phase.hpp"
 #include "game/play-phase.hpp"
 #include "game/shutdown-phase.hpp"
 #include "game/startup-phase.hpp"
 #include "game/unload-map-phase.hpp"
-#include <stdexcept>
 
 using namespace game;
 
 // -----------------------------------------------------------------------------
 
 App::App() : phaseIndex_(PhaseKind::Startup) {
-    // FRAGE: ist hier ein cleanup nötig?
     phases_[PhaseKind::Startup] = &StartupPhase::getInstance();
     phases_[PhaseKind::MainMenu] = &MainMenuPhase::getInstance();
     phases_[PhaseKind::LoadMap] = &LoadMapPhase::getInstance();
@@ -26,15 +26,16 @@ App::~App() {}
 // -----------------------------------------------------------------------------
 
 void App::start(unsigned int width, unsigned int height) {
-    // window.create(sf::VideoMode(width, height), "Jump n Run Game – VC");
+    window_.create(sf::VideoMode(width, height), "Jump 'n' Run HD");
 }
 
 void App::exit() {
-    // window.close();
+    window_.clear();
+    window_.close();
 }
 
 void App::run() {
-    getPhase()->onEnter();
+    getPhase()->onEnter(window_);
     while (phaseIndex_ != PhaseKind::Exit) {
         handleEventQueue();
         onRun();
@@ -44,16 +45,53 @@ void App::run() {
 // -----------------------------------------------------------------------------
 
 void App::handleEventQueue() {
-    // sf::Event event;
-    // while (window.pollEvent(event)) {
-    //     if (event.type == sf::Event::Closed)
-    //         currentPhaseIndex = Phase::Exit;
-    //         // window.close();
-    // }
+    auto eventKind = data::EventKind::UserInput;
+    auto data = data::EventData();
+
+    sf::Event event;
+    while (window_.pollEvent(event)) {
+        switch (event.type) {
+        case sf::Event::Closed:
+            data.key = core::UserInput::Escape;
+            data::EventSystem::getInstance().addEvent(eventKind, data);
+            break;
+
+        case sf::Event::KeyPressed:
+            switch (event.key.code) {
+            case sf::Keyboard::Escape:
+                data.key = core::UserInput::Escape;
+                data::EventSystem::getInstance().addEvent(eventKind, data);
+                break;
+            case sf::Keyboard::Enter:
+                data.key = core::UserInput::Enter;
+                data::EventSystem::getInstance().addEvent(eventKind, data);
+                break;
+            case sf::Keyboard::Up:
+                data.key = core::UserInput::Up;
+                data::EventSystem::getInstance().addEvent(eventKind, data);
+                break;
+            case sf::Keyboard::Down:
+                data.key = core::UserInput::Down;
+                data::EventSystem::getInstance().addEvent(eventKind, data);
+                break;
+            case sf::Keyboard::Left:
+                data.key = core::UserInput::Left;
+                data::EventSystem::getInstance().addEvent(eventKind, data);
+                break;
+            case sf::Keyboard::Right:
+                data.key = core::UserInput::Right;
+                data::EventSystem::getInstance().addEvent(eventKind, data);
+                break;
+            }
+            break;
+        }
+    }
+
+    data::EventSystem::getInstance().fireEvents();
 }
 
 void App::onRun() {
-    PhaseKind::Enum nextPhase = getPhase()->onRun();
+    auto nextPhase = getPhase()->onRun();
     if (nextPhase != phaseIndex_) {
         onTransition(nextPhase);
     }
@@ -67,7 +105,7 @@ void App::onTransition(PhaseKind::Enum nextPhase) {
         return;
     }
 
-    getPhase()->onEnter();
+    getPhase()->onEnter(window_);
 }
 
 // -----------------------------------------------------------------------------

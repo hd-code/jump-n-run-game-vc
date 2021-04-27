@@ -2,15 +2,18 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\..\src\core\aabb.cpp" />
-    <ClCompile Include="..\..\src\core\event-system.cpp" />
+    <ClCompile Include="..\..\src\core\config.cpp" />
+    <ClCompile Include="..\..\src\core\id-manager.cpp" />
     <ClCompile Include="..\..\src\core\vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\core\aabb.hpp" />
-    <ClInclude Include="..\..\src\core\event.hpp" />
-    <ClInclude Include="..\..\src\core\event-listener.hpp" />
-    <ClInclude Include="..\..\src\core\event-system.hpp" />
+    <ClInclude Include="..\..\src\core\config.hpp" />
+    <ClInclude Include="..\..\src\core\id-manager.hpp" />
+    <ClInclude Include="..\..\src\core\item-manager.hpp" />
     <ClInclude Include="..\..\src\core\singleton.hpp" />
+    <ClInclude Include="..\..\src\core\uncopyable.hpp" />
+    <ClInclude Include="..\..\src\core\user-input.hpp" />
     <ClInclude Include="..\..\src\core\vector2.hpp" />
   </ItemGroup>
 </Project>

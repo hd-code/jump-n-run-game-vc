@@ -9,7 +9,7 @@ namespace game {
 
 class PlayPhase : public core::Singleton<PlayPhase>, public BasePhase {
   public:
-    void onEnter();
+    void onEnter(sf::RenderWindow &window);
     void onLeave();
     PhaseKind::Enum onRun();
 

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<meta-entities>
+    <meta_entity name="player">
+        <data>
+            <kind>player</kind>
+            <height>0.9</height>
+            <width>0.9</width>
+        </data>
+        <logic></logic>
+        <graphics>
+            <texture>player.png</texture>
+        </graphics>
+    </meta_entity>
+    <meta_entity name="bed-rock">
+        <data>
+            <kind>platform</kind>
+            <height>1</height>
+            <width>1</width>
+        </data>
+        <logic></logic>
+        <graphics>
+            <texture>bed-rock.png</texture>
+        </graphics>
+    </meta_entity>
+    <meta_entity name="block">
+        <data>
+            <kind>obstacle</kind>
+            <height>1</height>
+            <width>1</width>
+        </data>
+        <logic></logic>
+        <graphics>
+            <texture>block.png</texture>
+        </graphics>
+    </meta_entity>
+    <meta_entity name="block-cracked">
+        <data>
+            <kind>obstacle</kind>
+            <height>1</height>
+            <width>1</width>
+        </data>
+        <logic></logic>
+        <graphics>
+            <texture>block-cracked.png</texture>
+        </graphics>
+    </meta_entity>
+    <meta_entity name="block-light">
+        <data>
+            <kind>obstacle</kind>
+            <height>1</height>
+            <width>1</width>
+        </data>
+        <logic></logic>
+        <graphics>
+            <texture>block-light.png</texture>
+        </graphics>
+    </meta_entity>
+</meta-entities>

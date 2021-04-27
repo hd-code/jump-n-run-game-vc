@@ -1,24 +1,32 @@
 #pragma once
 
-#include "core/event-listener.hpp"
+#include "SFML/Graphics.hpp"
 #include "core/singleton.hpp"
+#include "data/event-listener.hpp"
 
 // -----------------------------------------------------------------------------
 
 namespace gfx {
 
 class ShutdownPhase : public core::Singleton<ShutdownPhase>,
-                      public core::EventListener {
+                      public data::EventListener {
   public:
-    void onEnter();
+    void onEnter(sf::RenderWindow &window);
     void onLeave();
 
-    void onEvent(core::Event &event);
+    void render();
+
+    void onEvent(const data::Event &event);
 
   private:
     template <class T> friend class core::Singleton;
     ShutdownPhase();
     ~ShutdownPhase();
+
+    sf::RenderWindow *window_;
+
+    sf::Texture screenTexture_;
+    sf::Sprite screen_;
 };
 
 } // namespace gfx

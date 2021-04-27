@@ -1,21 +1,15 @@
 #pragma once
 
+#include "core/uncopyable.hpp"
+
 namespace core {
 
-template <class T> class Singleton {
+template <class T> class Singleton : private Uncopyable {
   public:
     static T &getInstance() {
         static T instance;
         return instance;
     }
-
-  protected:
-    Singleton() = default;
-    ~Singleton() = default;
-
-  private:
-    Singleton(const T &original) = delete;    // is not implemented
-    T &operator=(const T &original) = delete; // is not implemented
 };
 
 } // namespace core

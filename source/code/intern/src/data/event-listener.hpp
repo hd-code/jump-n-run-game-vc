@@ -2,13 +2,13 @@
 
 // -----------------------------------------------------------------------------
 
-namespace core {
+namespace data {
 
 class Event;
 
 class EventListener {
   public:
-    virtual void onEvent(Event &event) = 0;
+    virtual void onEvent(const Event &event) = 0;
 };
 
-} // namespace core
+} // namespace data

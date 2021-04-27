@@ -13,7 +13,7 @@ namespace data {
 
 class Sector {
   public:
-    static constexpr float size = 8.0f;
+    static constexpr float size_ = 8.0f;
 
     Sector();
     ~Sector();

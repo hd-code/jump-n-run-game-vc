@@ -1,24 +1,41 @@
 #include "game/shutdown-phase.hpp"
-#include <iostream>
+#include "data/shutdown-phase.hpp"
+#include "gfx/shutdown-phase.hpp"
+#include "logic/shutdown-phase.hpp"
 
 using namespace game;
 
 // -----------------------------------------------------------------------------
 
-ShutdownPhase::ShutdownPhase() {}
+ShutdownPhase::ShutdownPhase() : shutdownFired_(false) {}
+
 ShutdownPhase::~ShutdownPhase() {}
 
 // -----------------------------------------------------------------------------
 
-void ShutdownPhase::onEnter() {
-    std::cout << "ShutdownPhase onEnter" << std::endl;
+void ShutdownPhase::onEnter(sf::RenderWindow &window) {
+    clock_.restart();
+
+    data::ShutdownPhase::getInstance().onEnter();
+    gfx::ShutdownPhase::getInstance().onEnter(window);
+    logic::ShutdownPhase::getInstance().onEnter();
 }
 
 void ShutdownPhase::onLeave() {
-    std::cout << "ShutdownPhase onLeave" << std::endl;
+    data::ShutdownPhase::getInstance().onLeave();
+    gfx::ShutdownPhase::getInstance().onLeave();
+    logic::ShutdownPhase::getInstance().onLeave();
 }
 
 PhaseKind::Enum ShutdownPhase::onRun() {
-    std::cout << "ShutdownPhase onRun" << std::endl;
-    return PhaseKind::Exit;
+    gfx::ShutdownPhase::getInstance().render();
+
+    bool stay = data::ShutdownPhase::getInstance().onRun();
+
+    auto time = clock_.getElapsedTime();
+    if (time.asMilliseconds() < 2000) {
+        stay = true;
+    }
+
+    return stay ? PhaseKind::Shutdown : PhaseKind::Exit;
 }

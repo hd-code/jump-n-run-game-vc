@@ -41,7 +41,7 @@ EntityIterator Sector::searchSector(const core::AABB &aabb,
     EntityList &list = getFolder(kind).getEntities();
     for (auto iterator = list.begin(), end = list.end(); iterator != end;
          ++iterator) {
-        if (aabb.contains(iterator->getPosition())) {
+        if (aabb.intersects(iterator->getAABB())) {
             return iterator;
         }
     }
@@ -82,7 +82,7 @@ EntityIterator Sector::searchFolder(EntityIterator current,
                                     const core::AABB &aabb) {
     auto end = getFolder(current->getKind()).getEntities().end();
     for (auto iterator = ++current; iterator != end; ++iterator) {
-        if (aabb.contains(iterator->getPosition())) {
+        if (aabb.intersects(iterator->getAABB())) {
             return iterator;
         }
     }

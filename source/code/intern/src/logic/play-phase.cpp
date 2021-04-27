@@ -1,27 +1,38 @@
 #include "logic/play-phase.hpp"
-
-#include "core/event-system.hpp"
+#include "data/event-system.hpp"
 
 using namespace logic;
 
 // -----------------------------------------------------------------------------
 
-PlayPhase::PlayPhase() {}
+PlayPhase::PlayPhase() : leaveLevel_(false) {}
 
 PlayPhase::~PlayPhase() {}
 
 // -----------------------------------------------------------------------------
 
 void PlayPhase::onEnter() {
-    core::EventSystem::getInstance().addEventListener(*this);
+    data::EventSystem::getInstance().addEventListener(*this);
 }
 
 void PlayPhase::onLeave() {
-    core::EventSystem::getInstance().removeEventListener(*this);
+    data::EventSystem::getInstance().removeEventListener(*this);
 }
 
-void PlayPhase::onRun() {}
+bool PlayPhase::onRun() { return !leaveLevel_; }
 
 // -----------------------------------------------------------------------------
 
-void PlayPhase::onEvent(core::Event &event) {}
+void PlayPhase::onEvent(const data::Event &event) {
+    // register user input
+    // react to creation/delete of entities
+    switch (event.getKind()) {
+    case data::EventKind::UserInput:
+        switch (event.getData().key) {
+        case core::UserInput::Escape:
+            leaveLevel_ = true;
+            break;
+        }
+        break;
+    }
+}

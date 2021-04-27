@@ -1,32 +1,39 @@
 #pragma once
 
-#include "core/event-listener.hpp"
-#include "core/event.hpp"
 #include "core/singleton.hpp"
+#include "data/event-listener.hpp"
 
 namespace gui {
 
+struct SelectedLabel {
+    typedef enum {
+        BeginGame,
+        Exit,
+        Length,
+    } Enum;
+};
+
 class MainMenuPhase : public core::Singleton<MainMenuPhase>,
-                      public core::EventListener {
-
+                      public data::EventListener {
   public:
-    int getSelectedLabel() const;
-
     void onEnter();
     void onLeave();
-    int onRun();
 
-    void onEvent(core::Event &event);
+    void onEvent(const data::Event &event);
+
+    SelectedLabel::Enum getSelectedLabel() const;
+    bool beginGame() const;
+    bool exit() const;
 
   private:
     template <class T> friend class core::Singleton;
     MainMenuPhase();
     ~MainMenuPhase();
 
-    int selectedLabel;
+    SelectedLabel::Enum selectedLabel_;
 
-    bool arrowUpPressed;
-    bool arrowDownPressed;
+    bool escapePressed_;
+    bool enterPressed_;
 };
 
 } // namespace gui

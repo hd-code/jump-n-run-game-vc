@@ -1,17 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\src\gfx\tmp.cpp" />
+    <ClCompile Include="..\..\src\gfx\load-map-phase.cpp" />
     <ClCompile Include="..\..\src\gfx\main-menu-phase.cpp" />
-    <ClCompile Include="..\..\src\gfx\asset-system.cpp" />
+    <ClCompile Include="..\..\src\gfx\play-phase.cpp" />
     <ClCompile Include="..\..\src\gfx\shutdown-phase.cpp" />
     <ClCompile Include="..\..\src\gfx\startup-phase.cpp" />
+    <ClCompile Include="..\..\src\gfx\unload-map-phase.cpp" />
+    <ClCompile Include="..\..\src\gfx\meta-entity-facet.cpp" />
+    <ClCompile Include="..\..\src\gfx\meta-entity-facet-system.cpp" />
+    <ClCompile Include="..\..\src\gfx\entity-facet.cpp" />
+    <ClCompile Include="..\..\src\gfx\entity-facet-system.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\gfx\tmp.hpp" />
+    <ClInclude Include="..\..\src\gfx\load-map-phase.hpp" />
     <ClInclude Include="..\..\src\gfx\main-menu-phase.hpp" />
-    <ClInclude Include="..\..\src\gfx\asset-system.hpp" />
+    <ClInclude Include="..\..\src\gfx\play-phase.hpp" />
     <ClInclude Include="..\..\src\gfx\shutdown-phase.hpp" />
     <ClInclude Include="..\..\src\gfx\startup-phase.hpp" />
+    <ClInclude Include="..\..\src\gfx\unload-map-phase.hpp" />
+    <ClInclude Include="..\..\src\gfx\entity-facet.hpp" />
+    <ClInclude Include="..\..\src\gfx\meta-entity-facet.hpp" />
+    <ClInclude Include="..\..\src\gfx\meta-entity-facet-system.hpp" />
+    <ClInclude Include="..\..\src\gfx\entity-facet-system.hpp" />
   </ItemGroup>
 </Project>

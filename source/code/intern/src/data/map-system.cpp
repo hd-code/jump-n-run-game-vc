@@ -23,6 +23,7 @@ void MapSystem::createMap(float width, float height) {
 void MapSystem::destroyMap() {
     if (map_ != nullptr) {
         delete map_;
+        map_ = nullptr;
     }
 }
 

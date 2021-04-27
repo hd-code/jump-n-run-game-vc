@@ -3,6 +3,7 @@
 #include "core/vector2.hpp"
 #include "data/entity-iterator.hpp"
 #include "data/entity.hpp"
+#include "data/event-system.hpp"
 #include "data/sector.hpp"
 #include <cmath>
 
@@ -31,6 +32,10 @@ void Map::removeEntity(Entity &entity) {
 void Map::moveEntity(Entity &entity) {
     removeEntity(entity);
     addEntity(entity);
+
+    EventData data;
+    data.entity = &entity;
+    EventSystem::getInstance().fireEvent(EventKind::Entity_move, data);
 }
 
 // -----------------------------------------------------------------------------
@@ -178,9 +183,9 @@ unsigned int Map::getNextSectorIndex(const core::AABB &aabb,
 // -----------------------------------------------------------------------------
 
 unsigned int Map::calcNumOfSectors(float widthOrHeight) {
-    return (unsigned int)std::ceilf(widthOrHeight / Sector::size);
+    return (unsigned int)std::ceilf(widthOrHeight / Sector::size_);
 }
 
 unsigned int Map::calcIndex(float xOrY) {
-    return (unsigned int)std::floorf(xOrY / Sector::size);
+    return (unsigned int)std::floorf(xOrY / Sector::size_);
 }

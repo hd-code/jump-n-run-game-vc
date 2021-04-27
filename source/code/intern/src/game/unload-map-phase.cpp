@@ -1,24 +1,41 @@
 #include "game/unload-map-phase.hpp"
-#include <iostream>
+#include "data/unload-map-phase.hpp"
+#include "gfx/unload-map-phase.hpp"
+#include "logic/unload-map-phase.hpp"
 
 using namespace game;
 
 // -----------------------------------------------------------------------------
 
 UnloadMapPhase::UnloadMapPhase() {}
+
 UnloadMapPhase::~UnloadMapPhase() {}
 
 // -----------------------------------------------------------------------------
 
-void UnloadMapPhase::onEnter() {
-    std::cout << "UnloadMapPhase onEnter" << std::endl;
+void UnloadMapPhase::onEnter(sf::RenderWindow &window) {
+    clock_.restart();
+
+    data::UnloadMapPhase::getInstance().onEnter();
+    gfx::UnloadMapPhase::getInstance().onEnter(window);
+    logic::UnloadMapPhase::getInstance().onEnter();
 }
 
 void UnloadMapPhase::onLeave() {
-    std::cout << "UnloadMapPhase onLeave" << std::endl;
+    data::UnloadMapPhase::getInstance().onLeave();
+    gfx::UnloadMapPhase::getInstance().onLeave();
+    logic::UnloadMapPhase::getInstance().onLeave();
 }
 
 PhaseKind::Enum UnloadMapPhase::onRun() {
-    std::cout << "UnloadMapPhase onRun" << std::endl;
-    return PhaseKind::Shutdown;
+    gfx::UnloadMapPhase::getInstance().render();
+
+    bool stay = data::UnloadMapPhase::getInstance().onRun();
+
+    auto time = clock_.getElapsedTime();
+    if (time.asMilliseconds() < 2000) {
+        stay = true;
+    }
+
+    return stay ? PhaseKind::UnloadMap : PhaseKind::MainMenu;
 }

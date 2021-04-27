@@ -1,5 +1,7 @@
 #include "game/load-map-phase.hpp"
-#include <iostream>
+#include "data/load-map-phase.hpp"
+#include "gfx/load-map-phase.hpp"
+#include "logic/load-map-phase.hpp"
 
 using namespace game;
 
@@ -10,15 +12,29 @@ LoadMapPhase::~LoadMapPhase() {}
 
 // -----------------------------------------------------------------------------
 
-void LoadMapPhase::onEnter() {
-    std::cout << "LoadMapPhase onEnter" << std::endl;
+void LoadMapPhase::onEnter(sf::RenderWindow &window) {
+    clock_.restart();
+
+    data::LoadMapPhase::getInstance().onEnter();
+    gfx::LoadMapPhase::getInstance().onEnter(window);
+    logic::LoadMapPhase::getInstance().onEnter();
 }
 
 void LoadMapPhase::onLeave() {
-    std::cout << "LoadMapPhase onLeave" << std::endl;
+    data::LoadMapPhase::getInstance().onLeave();
+    gfx::LoadMapPhase::getInstance().onLeave();
+    logic::LoadMapPhase::getInstance().onLeave();
 }
 
 PhaseKind::Enum LoadMapPhase::onRun() {
-    std::cout << "LoadMapPhase onRun" << std::endl;
-    return PhaseKind::Play;
+    gfx::LoadMapPhase::getInstance().render();
+
+    bool stay = data::LoadMapPhase::getInstance().onRun();
+
+    auto time = clock_.getElapsedTime();
+    if (time.asMilliseconds() < 2000) {
+        stay = true;
+    }
+
+    return stay ? PhaseKind::LoadMap : PhaseKind::Play;
 }

@@ -114,16 +114,18 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\src\;$(SolutionDir)..\..\extern\sfml\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\extern\;$(SolutionDir)..\..\extern\sfml\include\;$(SolutionDir)..\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalModuleDependencies>
+      </AdditionalModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
-      <AdditionalDependencies>core.lib;data.lib;gfx.lib;gui.lib;logic.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;%(AdditionalDependencies);core.lib;data.lib;gfx.lib;gui.lib;logic.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;$(SolutionDir)..\..\extern\sfml\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;opengl32.lib;gdi32.lib;winmm.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
@@ -135,9 +137,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\src\;$(SolutionDir)..\..\extern\sfml\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\extern\;$(SolutionDir)..\..\extern\sfml\include\;$(SolutionDir)..\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,8 +147,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
-      <AdditionalDependencies>core.lib;data.lib;gfx.lib;gui.lib;logic.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;openal32.lib;freetype.lib;%(AdditionalDependencies);core.lib;data.lib;gfx.lib;gui.lib;logic.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;$(SolutionDir)..\..\extern\sfml\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;opengl32.lib;gdi32.lib;winmm.lib;sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
@@ -156,16 +158,18 @@
     <ClCompile>
       <WarningLevel>Level4</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\src\;$(SolutionDir)..\..\extern\sfml\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\extern\;$(SolutionDir)..\..\extern\sfml\include\;$(SolutionDir)..\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalModuleDependencies>
+      </AdditionalModuleDependencies>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
-      <AdditionalDependencies>core.lib;data.lib;gfx.lib;gui.lib;logic.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;%(AdditionalDependencies);core.lib;data.lib;gfx.lib;gui.lib;logic.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;$(SolutionDir)..\..\extern\sfml\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;opengl32.lib;gdi32.lib;winmm.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;sfml-graphics-s-d.lib;tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
@@ -177,9 +181,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\src\;$(SolutionDir)..\..\extern\sfml\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\extern\;$(SolutionDir)..\..\extern\sfml\include\;$(SolutionDir)..\src\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -187,8 +191,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName)</OutputFile>
-      <AdditionalDependencies>core.lib;data.lib;gfx.lib;gui.lib;logic.lib;opengl32.lib;freetype.lib;winmm.lib;gdi32.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;openal32.lib;freetype.lib;%(AdditionalDependencies);core.lib;data.lib;gfx.lib;gui.lib;logic.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;$(SolutionDir)..\..\extern\sfml\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;opengl32.lib;gdi32.lib;winmm.lib;sfml-system-s.lib;sfml-window-s.lib;sfml-graphics-s.lib;tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>

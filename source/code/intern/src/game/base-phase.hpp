@@ -1,5 +1,9 @@
 #pragma once
 
+namespace sf {
+class RenderWindow;
+}
+
 namespace game {
 
 struct PhaseKind {
@@ -17,7 +21,7 @@ struct PhaseKind {
 
 class BasePhase {
   public:
-    virtual void onEnter() = 0;
+    virtual void onEnter(sf::RenderWindow &window) = 0;
     virtual void onLeave() = 0;
     virtual PhaseKind::Enum onRun() = 0;
 };

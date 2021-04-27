@@ -8,7 +8,7 @@ using namespace game;
 
 int main() {
     try {
-        App::getInstance().start(400, 300);
+        App::getInstance().start(800, 600);
         App::getInstance().run();
     } catch (const std::exception &e) {
         std::cout << e.what() << std::endl;

@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<map>
+    <height>16</height>
+    <width>64</width>
+    <entities>
+        <entity name="player">
+            <meta-entity>player</meta-entity>
+            <data>
+                <position>
+                    <x>3.5</x>
+                    <y>2.45</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-01">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>0.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-02">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>1.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-03">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>2.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-04">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>3.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-05">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>4.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-06">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>5.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-07">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>6.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-08">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>7.5</x>
+                    <y>0.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-09">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>0.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-10">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>1.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-11">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>2.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-12">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>3.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-13">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>4.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-14">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>5.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-15">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>6.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="ground-16">
+            <meta-entity>bed-rock</meta-entity>
+            <data>
+                <position>
+                    <x>7.5</x>
+                    <y>1.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-01">
+            <meta-entity>block</meta-entity>
+            <data>
+                <position>
+                    <x>1.5</x>
+                    <y>2.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-02">
+            <meta-entity>block</meta-entity>
+            <data>
+                <position>
+                    <x>2.5</x>
+                    <y>2.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-03">
+            <meta-entity>block</meta-entity>
+            <data>
+                <position>
+                    <x>1.5</x>
+                    <y>3.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-04">
+            <meta-entity>block-cracked</meta-entity>
+            <data>
+                <position>
+                    <x>4.5</x>
+                    <y>2.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-05">
+            <meta-entity>block-cracked</meta-entity>
+            <data>
+                <position>
+                    <x>6.5</x>
+                    <y>2.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-06">
+            <meta-entity>block-cracked</meta-entity>
+            <data>
+                <position>
+                    <x>4.5</x>
+                    <y>4.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-07">
+            <meta-entity>block-light</meta-entity>
+            <data>
+                <position>
+                    <x>4.5</x>
+                    <y>3.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+        <entity name="obstacle-08">
+            <meta-entity>block-light</meta-entity>
+            <data>
+                <position>
+                    <x>3.5</x>
+                    <y>4.5</y>
+                </position>
+            </data>
+            <graphics></graphics>
+            <logic></logic>
+        </entity>
+    </entities>
+</map>

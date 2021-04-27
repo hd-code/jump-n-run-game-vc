@@ -18,6 +18,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\logic\entity-facet-system.cpp" />
+    <ClCompile Include="..\..\src\logic\entity-facet.cpp" />
+    <ClCompile Include="..\..\src\logic\load-map-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\meta-entity-facet-system.cpp" />
+    <ClCompile Include="..\..\src\logic\meta-entity-facet.cpp" />
+    <ClCompile Include="..\..\src\logic\play-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\shutdown-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\startup-phase.cpp" />
+    <ClCompile Include="..\..\src\logic\unload-map-phase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\logic\entity-facet-system.hpp" />
+    <ClInclude Include="..\..\src\logic\entity-facet.hpp" />
+    <ClInclude Include="..\..\src\logic\load-map-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\meta-entity-facet-system.hpp" />
+    <ClInclude Include="..\..\src\logic\meta-entity-facet.hpp" />
+    <ClInclude Include="..\..\src\logic\play-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\shutdown-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\startup-phase.hpp" />
+    <ClInclude Include="..\..\src\logic\unload-map-phase.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -150,12 +172,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\logic\tmp.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\logic\tmp.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

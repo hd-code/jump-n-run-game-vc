@@ -1,6 +1,6 @@
 #include "logic/shutdown-phase.hpp"
-
-#include "core/event-system.hpp"
+#include "data/event-system.hpp"
+#include "logic/meta-entity-facet-system.hpp"
 
 using namespace logic;
 
@@ -13,15 +13,19 @@ ShutdownPhase::~ShutdownPhase() {}
 // -----------------------------------------------------------------------------
 
 void ShutdownPhase::onEnter() {
-    core::EventSystem::getInstance().addEventListener(*this);
+    data::EventSystem::getInstance().addEventListener(*this);
 }
 
 void ShutdownPhase::onLeave() {
-    core::EventSystem::getInstance().removeEventListener(*this);
+    data::EventSystem::getInstance().removeEventListener(*this);
 }
-
-void ShutdownPhase::onRun() {}
 
 // -----------------------------------------------------------------------------
 
-void ShutdownPhase::onEvent(core::Event &event) {}
+void ShutdownPhase::onEvent(const data::Event &event) {
+    switch (event.getKind()) {
+    case data::EventKind::MetaEntities_clear:
+        MetaEntityFacetSystem::getInstance().clear();
+        break;
+    }
+}

@@ -1,44 +1,41 @@
-/* #include "gfx/main-menu-phase.hpp"
-
-#include "gfx/asset-system.hpp"
+#include "gfx/main-menu-phase.hpp"
+#include "core/config.hpp"
 #include "gui/main-menu-phase.hpp"
+#include <assert.h>
 
 using namespace gfx;
 
 // -----------------------------------------------------------------------------
 
-MainMenuPhase::MainMenuPhase() : window(nullptr) {}
+MainMenuPhase::MainMenuPhase() : window_(nullptr) {}
+
 MainMenuPhase::~MainMenuPhase() {}
 
 // -----------------------------------------------------------------------------
 
 void MainMenuPhase::onEnter(sf::RenderWindow &window) {
-    // this->window = &window;
+    window_ = &window;
 
-    // sf::Font font = AssetSystem::getInstance().getFont();
-    // labels[0].setFont(font);
-    // labels[0].setCharacterSize(24);
-    // labels[1].setFont(font);
-    // labels[1].setCharacterSize(24);
+    std::string filepath;
+
+    filepath = core::Config::screensDir + "menu-begin.png";
+    assert(textures_[gui::SelectedLabel::BeginGame].loadFromFile(filepath));
+    screens_[gui::SelectedLabel::BeginGame].setTexture(
+        textures_[gui::SelectedLabel::BeginGame]);
+
+    filepath = core::Config::screensDir + "menu-exit.png";
+    assert(textures_[gui::SelectedLabel::Exit].loadFromFile(filepath));
+    screens_[gui::SelectedLabel::Exit].setTexture(
+        textures_[gui::SelectedLabel::Exit]);
 }
 
-void MainMenuPhase::onLeave() { this->window = nullptr; }
+void MainMenuPhase::onLeave() {}
 
 // -----------------------------------------------------------------------------
 
 void MainMenuPhase::render() {
-    window->clear();
-
-    int selected = gui::MainMenuPhase::getInstance().getSelectedLabel();
-    for (auto i = 0; i < 2; ++i) {
-        if (i == selected) {
-            labels[i].setStyle(sf::Text::Bold);
-        } else {
-            labels[i].setStyle(sf::Text::Regular);
-        }
-
-        window->draw(labels[i]);
-    }
-
-    window->display();
-} */
+    window_->clear();
+    auto label = gui::MainMenuPhase::getInstance().getSelectedLabel();
+    window_->draw(screens_[label]);
+    window_->display();
+}

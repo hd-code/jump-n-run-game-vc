@@ -9,7 +9,7 @@ namespace game {
 
 class MainMenuPhase : public core::Singleton<MainMenuPhase>, public BasePhase {
   public:
-    void onEnter();
+    void onEnter(sf::RenderWindow &window);
     void onLeave();
     PhaseKind::Enum onRun();
 

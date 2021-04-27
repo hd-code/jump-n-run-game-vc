@@ -1,5 +1,6 @@
 #pragma once
 
+#include "SFML/Graphics.hpp"
 #include "core/singleton.hpp"
 #include "game/base-phase.hpp"
 
@@ -23,6 +24,8 @@ class App : public core::Singleton<App> {
     BasePhase *getPhase() const;
     PhaseKind::Enum phaseIndex_;
     BasePhase *phases_[PhaseKind::Length];
+
+    sf::RenderWindow window_;
 };
 
 } // namespace game

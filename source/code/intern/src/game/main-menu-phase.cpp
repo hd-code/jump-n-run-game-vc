@@ -1,24 +1,37 @@
 #include "game/main-menu-phase.hpp"
-#include <iostream>
+#include "gfx/main-menu-phase.hpp"
+#include "gui/main-menu-phase.hpp"
 
 using namespace game;
 
 // -----------------------------------------------------------------------------
 
 MainMenuPhase::MainMenuPhase() {}
+
 MainMenuPhase::~MainMenuPhase() {}
 
 // -----------------------------------------------------------------------------
 
-void MainMenuPhase::onEnter() {
-    std::cout << "MainMenuPhase onEnter" << std::endl;
+void MainMenuPhase::onEnter(sf::RenderWindow &window) {
+    gfx::MainMenuPhase::getInstance().onEnter(window);
+    gui::MainMenuPhase::getInstance().onEnter();
 }
 
 void MainMenuPhase::onLeave() {
-    std::cout << "MainMenuPhase onLeave" << std::endl;
+    gfx::MainMenuPhase::getInstance().onLeave();
+    gui::MainMenuPhase::getInstance().onLeave();
 }
 
 PhaseKind::Enum MainMenuPhase::onRun() {
-    std::cout << "MainMenuPhase onRun" << std::endl;
-    return PhaseKind::LoadMap;
+    gfx::MainMenuPhase::getInstance().render();
+
+    if (gui::MainMenuPhase::getInstance().exit()) {
+        return PhaseKind::Shutdown;
+    }
+
+    if (gui::MainMenuPhase::getInstance().beginGame()) {
+        return PhaseKind::LoadMap;
+    }
+
+    return PhaseKind::MainMenu;
 }

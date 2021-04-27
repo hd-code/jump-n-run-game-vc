@@ -1,15 +1,15 @@
 #pragma once
 
-#include <new.h>
+#include <new>
 #include <stdlib.h>
 
 namespace sahm {
 template <class T, size_t TNumberOfBytesPerPage> class CPool {
-public:
+  public:
     static const size_t s_NumberOfItemsPerPage =
         TNumberOfBytesPerPage / sizeof(T);
 
-public:
+  public:
     CPool() : m_pFirstPage(nullptr), m_pFirstFreeChunk(nullptr) {}
 
     ~CPool() {
@@ -24,7 +24,7 @@ public:
         }
     }
 
-public:
+  public:
     T &AllocateItem() {
         T *pNewItem;
         SPage *pNewPage;
@@ -91,10 +91,10 @@ public:
         m_pFirstFreeChunk = pChunk;
     }
 
-private:
+  private:
     static const size_t s_NumberOfChunksPerPage = s_NumberOfItemsPerPage;
 
-private:
+  private:
     struct SChunk {
         union {
             SChunk *m_pNextFreeChunk;
@@ -107,7 +107,7 @@ private:
         SPage *m_pNextPage;
     };
 
-private:
+  private:
     SPage *m_pFirstPage;
     SChunk *m_pFirstFreeChunk;
 };

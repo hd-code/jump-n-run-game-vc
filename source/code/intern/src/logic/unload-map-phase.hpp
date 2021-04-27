@@ -1,20 +1,19 @@
 #pragma once
 
-#include "core/event-listener.hpp"
 #include "core/singleton.hpp"
+#include "data/event-listener.hpp"
 
 // -----------------------------------------------------------------------------
 
 namespace logic {
 
 class UnloadMapPhase : public core::Singleton<UnloadMapPhase>,
-                       public core::EventListener {
+                       public data::EventListener {
   public:
     void onEnter();
     void onLeave();
-    void onRun();
 
-    void onEvent(core::Event &event);
+    void onEvent(const data::Event &event);
 
   private:
     template <class T> friend class core::Singleton;

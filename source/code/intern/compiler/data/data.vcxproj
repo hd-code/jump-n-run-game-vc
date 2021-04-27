@@ -21,24 +21,44 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\data\entity-folder.cpp" />
     <ClCompile Include="..\..\src\data\entity-iterator.cpp" />
+    <ClCompile Include="..\..\src\data\entity-kind.cpp" />
     <ClCompile Include="..\..\src\data\entity-link.cpp" />
     <ClCompile Include="..\..\src\data\entity-list.cpp" />
+    <ClCompile Include="..\..\src\data\entity-system.cpp" />
     <ClCompile Include="..\..\src\data\entity.cpp" />
+    <ClCompile Include="..\..\src\data\event-system.cpp" />
+    <ClCompile Include="..\..\src\data\event.cpp" />
+    <ClCompile Include="..\..\src\data\load-map-phase.cpp" />
     <ClCompile Include="..\..\src\data\map-system.cpp" />
     <ClCompile Include="..\..\src\data\map.cpp" />
+    <ClCompile Include="..\..\src\data\meta-entity-system.cpp" />
+    <ClCompile Include="..\..\src\data\meta-entity.cpp" />
     <ClCompile Include="..\..\src\data\sector.cpp" />
+    <ClCompile Include="..\..\src\data\shutdown-phase.cpp" />
+    <ClCompile Include="..\..\src\data\startup-phase.cpp" />
+    <ClCompile Include="..\..\src\data\unload-map-phase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\data\entity-event.hpp" />
     <ClInclude Include="..\..\src\data\entity-folder.hpp" />
     <ClInclude Include="..\..\src\data\entity-iterator.hpp" />
     <ClInclude Include="..\..\src\data\entity-kind.hpp" />
     <ClInclude Include="..\..\src\data\entity-link.hpp" />
     <ClInclude Include="..\..\src\data\entity-list.hpp" />
+    <ClInclude Include="..\..\src\data\entity-system.hpp" />
     <ClInclude Include="..\..\src\data\entity.hpp" />
+    <ClInclude Include="..\..\src\data\event-listener.hpp" />
+    <ClInclude Include="..\..\src\data\event-system.hpp" />
+    <ClInclude Include="..\..\src\data\event.hpp" />
+    <ClInclude Include="..\..\src\data\load-map-phase.hpp" />
     <ClInclude Include="..\..\src\data\map-system.hpp" />
     <ClInclude Include="..\..\src\data\map.hpp" />
+    <ClInclude Include="..\..\src\data\meta-entity-system.hpp" />
     <ClInclude Include="..\..\src\data\meta-entity.hpp" />
     <ClInclude Include="..\..\src\data\sector.hpp" />
+    <ClInclude Include="..\..\src\data\shutdown-phase.hpp" />
+    <ClInclude Include="..\..\src\data\startup-phase.hpp" />
+    <ClInclude Include="..\..\src\data\unload-map-phase.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

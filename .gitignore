@@ -3,6 +3,12 @@ build/
 # created by shared folder from virtualbox
 /System Volume Information
 
+# tinyxml2
+/source/code/extern/tinyxml2/Debug/*
+!/source/code/extern/tinyxml2/Debug/*.lib
+/source/code/extern/tinyxml2/Release/*
+!/source/code/extern/tinyxml2/Release/*.lib
+
 # IDEs
 .vs/
 .vscode/

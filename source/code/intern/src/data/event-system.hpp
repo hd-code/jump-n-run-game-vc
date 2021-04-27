@@ -1,20 +1,26 @@
 #pragma once
 
 #include "core/singleton.hpp"
+#include "data/event.hpp"
 #include <list>
+#include <vector>
 
 // -----------------------------------------------------------------------------
 
-namespace core {
+namespace data {
 
-class Event;
 class EventListener;
 
 class EventSystem : public core::Singleton<EventSystem> {
   public:
-    void addEvent(Event &event);
-    void fireEvent(Event &event);
+    void addEvent(EventKind kind);
+    void addEvent(EventKind kind, EventData data);
+
+    /// Fires all events that were added before by the `addEvent` method.
     void fireEvents();
+
+    void fireEvent(EventKind kind);
+    void fireEvent(EventKind kind, EventData data);
 
     void addEventListener(EventListener &eventListener);
     void removeEventListener(EventListener &eventListener);
@@ -24,8 +30,10 @@ class EventSystem : public core::Singleton<EventSystem> {
     EventSystem();
     ~EventSystem();
 
-    std::list<Event *> events_;
+    void fireEvent(const Event &event);
+
+    std::vector<Event> events_;
     std::list<EventListener *> eventListeners_;
 };
 
-} // namespace core
+} // namespace data
