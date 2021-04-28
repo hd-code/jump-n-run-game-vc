@@ -1,4 +1,5 @@
 #include "game/startup-phase.hpp"
+#include "core/config.hpp"
 #include "data/startup-phase.hpp"
 #include "gfx/startup-phase.hpp"
 #include "logic/startup-phase.hpp"
@@ -32,7 +33,7 @@ PhaseKind::Enum StartupPhase::onRun() {
     bool stay = data::StartupPhase::getInstance().onRun();
 
     auto time = clock_.getElapsedTime();
-    if (time.asMilliseconds() < 2000) {
+    if (time.asMilliseconds() < core::Config::minLoadingTime) {
         stay = true;
     }
 

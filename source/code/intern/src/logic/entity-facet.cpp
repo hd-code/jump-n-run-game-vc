@@ -1,6 +1,6 @@
-#include "gfx/entity-facet.hpp"
+#include "logic/entity-facet.hpp"
 
-using namespace gfx;
+using namespace logic;
 
 // -----------------------------------------------------------------------------
 

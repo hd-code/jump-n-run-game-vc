@@ -18,6 +18,7 @@ bool EntityList::empty() const { return !anchor_.isLinked(); }
 
 void EntityList::push_back(Entity &entity) { entity.link_.link(anchor_); }
 
+#pragma warning(disable : 4172)
 Entity &EntityList::pop_back() {
     assert(anchor_.isLinked());
     EntityLink link = anchor_.getPrevious();

@@ -2,7 +2,9 @@
 #include "core/config.hpp"
 #include "data/entity-system.hpp"
 #include "data/event-system.hpp"
+#include "data/meta-entity.hpp"
 #include "gfx/entity-facet-system.hpp"
+#include "gfx/meta-entity-facet.hpp"
 #include "tinyxml2/tinyxml2.h"
 #include <assert.h>
 
@@ -53,13 +55,19 @@ void LoadMapPhase::loadEntity(tinyxml2::XMLElement *xml) {
     const char *name;
     xml->QueryStringAttribute("name", &name);
     auto &entity = data::EntitySystem::getInstance().get(name);
+    auto metaFacet = static_cast<MetaEntityFacet *>(
+        entity.getMetaEntity().getFacet(data::MetaEntityFacetKind::Gfx));
 
     auto &facet = EntityFacetSystem::getInstance().create(entity.getId());
+
+    facet.init(entity.getMetaEntity().getWidth(),
+               entity.getMetaEntity().getHeight(), entity.getPosition(),
+               metaFacet->getTexture());
 
     auto gfxElement = xml->FirstChildElement("graphics");
     assert(gfxElement != nullptr);
 
-    // Do stuff here...
+    // Do more stuff here...
 
-    entity.registerFacet(data::EntityFacetKind::Logic, &facet);
+    entity.registerFacet(data::EntityFacetKind::Gfx, &facet);
 }

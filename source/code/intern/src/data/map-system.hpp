@@ -33,6 +33,8 @@ class MapSystem : public core::Singleton<MapSystem> {
 
     EntityIterator end();
 
+    core::AABB getMapSize();
+
   private:
     template <class T> friend class core::Singleton;
     MapSystem();

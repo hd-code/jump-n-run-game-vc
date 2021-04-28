@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <map>
     <height>16</height>
-    <width>64</width>
+    <width>16</width>
     <entities>
         <entity name="player">
             <meta-entity>player</meta-entity>
             <data>
                 <position>
-                    <x>3.5</x>
-                    <y>2.45</y>
+                    <x>2.05</x>
+                    <y>4.05</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -18,8 +18,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>0.5</x>
-                    <y>0.5</y>
+                    <x>0</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -29,8 +29,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>1.5</x>
-                    <y>0.5</y>
+                    <x>1</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -40,8 +40,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>2.5</x>
-                    <y>0.5</y>
+                    <x>2</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -51,8 +51,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>3.5</x>
-                    <y>0.5</y>
+                    <x>3</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -62,8 +62,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>4.5</x>
-                    <y>0.5</y>
+                    <x>4</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -73,8 +73,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>5.5</x>
-                    <y>0.5</y>
+                    <x>5</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -84,8 +84,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>6.5</x>
-                    <y>0.5</y>
+                    <x>6</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -95,8 +95,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>7.5</x>
-                    <y>0.5</y>
+                    <x>7</x>
+                    <y>6</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -106,8 +106,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>0.5</x>
-                    <y>1.5</y>
+                    <x>0</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -117,8 +117,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>1.5</x>
-                    <y>1.5</y>
+                    <x>1</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -128,8 +128,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>2.5</x>
-                    <y>1.5</y>
+                    <x>2</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -139,8 +139,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>3.5</x>
-                    <y>1.5</y>
+                    <x>3</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -150,8 +150,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>4.5</x>
-                    <y>1.5</y>
+                    <x>4</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -161,8 +161,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>5.5</x>
-                    <y>1.5</y>
+                    <x>5</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -172,8 +172,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>6.5</x>
-                    <y>1.5</y>
+                    <x>6</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -183,8 +183,8 @@
             <meta-entity>bed-rock</meta-entity>
             <data>
                 <position>
-                    <x>7.5</x>
-                    <y>1.5</y>
+                    <x>7</x>
+                    <y>5</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -194,8 +194,8 @@
             <meta-entity>block</meta-entity>
             <data>
                 <position>
-                    <x>1.5</x>
-                    <y>2.5</y>
+                    <x>1</x>
+                    <y>4</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -205,8 +205,8 @@
             <meta-entity>block</meta-entity>
             <data>
                 <position>
-                    <x>2.5</x>
-                    <y>2.5</y>
+                    <x>1</x>
+                    <y>3</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -216,8 +216,8 @@
             <meta-entity>block</meta-entity>
             <data>
                 <position>
-                    <x>1.5</x>
-                    <y>3.5</y>
+                    <x>2</x>
+                    <y>1</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -227,8 +227,8 @@
             <meta-entity>block-cracked</meta-entity>
             <data>
                 <position>
-                    <x>4.5</x>
-                    <y>2.5</y>
+                    <x>4</x>
+                    <y>4</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -238,8 +238,8 @@
             <meta-entity>block-cracked</meta-entity>
             <data>
                 <position>
-                    <x>6.5</x>
-                    <y>2.5</y>
+                    <x>6</x>
+                    <y>4</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -249,8 +249,8 @@
             <meta-entity>block-cracked</meta-entity>
             <data>
                 <position>
-                    <x>4.5</x>
-                    <y>4.5</y>
+                    <x>4</x>
+                    <y>2</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -260,8 +260,8 @@
             <meta-entity>block-light</meta-entity>
             <data>
                 <position>
-                    <x>4.5</x>
-                    <y>3.5</y>
+                    <x>4</x>
+                    <y>3</y>
                 </position>
             </data>
             <graphics></graphics>
@@ -271,8 +271,8 @@
             <meta-entity>block-light</meta-entity>
             <data>
                 <position>
-                    <x>3.5</x>
-                    <y>4.5</y>
+                    <x>3</x>
+                    <y>4</y>
                 </position>
             </data>
             <graphics></graphics>

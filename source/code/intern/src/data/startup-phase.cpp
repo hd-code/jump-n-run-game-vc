@@ -18,10 +18,11 @@ StartupPhase::~StartupPhase() {}
 
 // -----------------------------------------------------------------------------
 
+#pragma warning(disable : 4189)
 void StartupPhase::onEnter() {
     const std::string file = core::Config::dataDir + "meta-entities.xml";
-    auto err = document_.LoadFile(file.c_str());
-    assert(err == tinyxml2::XML_SUCCESS);
+    auto error = document_.LoadFile(file.c_str());
+    assert(error == tinyxml2::XML_SUCCESS);
 
     metaElement_ = document_.FirstChildElement()->FirstChildElement();
 

@@ -139,6 +139,13 @@ EntityIterator Map::end() { return EntityIterator(); }
 
 // -----------------------------------------------------------------------------
 
+core::AABB Map::getMapSize() {
+    return core::AABB(0.0f, 0.0f, numOfSectorsX_ * Sector::size_,
+                      numOfSectorsY_ * Sector::size_);
+}
+
+// -----------------------------------------------------------------------------
+
 Sector &Map::getSector(const core::Vector2 &position) {
     return sectors_[getSectorIndex(position)];
 }
@@ -187,5 +194,5 @@ unsigned int Map::calcNumOfSectors(float widthOrHeight) {
 }
 
 unsigned int Map::calcIndex(float xOrY) {
-    return (unsigned int)std::floorf(xOrY / Sector::size_);
+    return (unsigned int)std::floorf(std::max(xOrY, 0.0f) / Sector::size_);
 }

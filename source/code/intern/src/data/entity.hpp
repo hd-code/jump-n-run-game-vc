@@ -27,6 +27,7 @@ class Entity : private core::Uncopyable {
 
     Id getId() const;
     EntityKind::Enum getKind() const;
+    MetaEntity &getMetaEntity() const;
 
     core::Vector2 getPosition() const;
     core::AABB &getAABB();

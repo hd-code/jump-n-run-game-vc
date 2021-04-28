@@ -33,6 +33,8 @@ class Map {
 
     EntityIterator end();
 
+    core::AABB getMapSize();
+
   private:
     Sector &getSector(const core::Vector2 &position);
 

@@ -35,6 +35,7 @@ void StartupPhase::onEvent(const data::Event &event) {
 
 // -----------------------------------------------------------------------------
 
+#pragma warning(disable : 4189)
 void StartupPhase::loadMetaEntity(tinyxml2::XMLElement *xml) {
     const char *name;
     xml->QueryStringAttribute("name", &name);

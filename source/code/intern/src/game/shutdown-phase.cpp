@@ -1,4 +1,5 @@
 #include "game/shutdown-phase.hpp"
+#include "core/config.hpp"
 #include "data/shutdown-phase.hpp"
 #include "gfx/shutdown-phase.hpp"
 #include "logic/shutdown-phase.hpp"
@@ -33,7 +34,7 @@ PhaseKind::Enum ShutdownPhase::onRun() {
     bool stay = data::ShutdownPhase::getInstance().onRun();
 
     auto time = clock_.getElapsedTime();
-    if (time.asMilliseconds() < 2000) {
+    if (time.asMilliseconds() < core::Config::minLoadingTime) {
         stay = true;
     }
 

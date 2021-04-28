@@ -35,6 +35,7 @@ void LoadMapPhase::onEvent(const data::Event &event) {
 
 // -----------------------------------------------------------------------------
 
+#pragma warning(disable : 4189)
 void LoadMapPhase::loadEntity(tinyxml2::XMLElement *xml) {
     const char *name;
     xml->QueryStringAttribute("name", &name);

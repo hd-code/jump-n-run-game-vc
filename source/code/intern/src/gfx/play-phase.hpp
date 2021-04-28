@@ -1,13 +1,10 @@
 #pragma once
 
+#include "SFML/Graphics.hpp"
 #include "core/singleton.hpp"
 #include "data/event-listener.hpp"
 
 // -----------------------------------------------------------------------------
-
-namespace sf {
-class RenderWindow;
-}
 
 namespace gfx {
 
@@ -27,6 +24,7 @@ class PlayPhase : public core::Singleton<PlayPhase>,
     ~PlayPhase();
 
     sf::RenderWindow *window_;
+    sf::View view_;
 };
 
 } // namespace gfx

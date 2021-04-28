@@ -111,7 +111,7 @@
       <AdditionalDependencies>tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,7 +133,7 @@
       <AdditionalDependencies>tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -151,7 +151,7 @@
       <AdditionalDependencies>tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -173,7 +173,7 @@
       <AdditionalDependencies>tinyxml2.lib;core.lib;data.lib;gfx.lib;gui.lib;logic.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

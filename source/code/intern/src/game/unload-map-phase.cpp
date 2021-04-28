@@ -1,4 +1,5 @@
 #include "game/unload-map-phase.hpp"
+#include "core/config.hpp"
 #include "data/unload-map-phase.hpp"
 #include "gfx/unload-map-phase.hpp"
 #include "logic/unload-map-phase.hpp"
@@ -33,7 +34,7 @@ PhaseKind::Enum UnloadMapPhase::onRun() {
     bool stay = data::UnloadMapPhase::getInstance().onRun();
 
     auto time = clock_.getElapsedTime();
-    if (time.asMilliseconds() < 2000) {
+    if (time.asMilliseconds() < core::Config::minLoadingTime) {
         stay = true;
     }
 

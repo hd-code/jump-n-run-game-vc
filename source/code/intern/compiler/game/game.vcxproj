@@ -94,6 +94,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -104,6 +105,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -128,7 +130,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,7 +153,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -172,7 +174,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -195,7 +197,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\extern\sfml\lib\;$(SolutionDir)..\..\extern\tinyxml2\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\core\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\data\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gfx\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\gui\$(Configuration)\;$(SolutionDir)..\build\$(PlatformName)\logic\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\build\</Command>
+      <Command>copy $(SolutionDir)..\build\$(PlatformName)\$(ProjectName)\$(Configuration)\$(TargetFileName) $(SolutionDir)..\..\..\bin\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

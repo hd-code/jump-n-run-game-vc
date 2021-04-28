@@ -19,6 +19,7 @@ LoadMapPhase::~LoadMapPhase() {}
 
 // -----------------------------------------------------------------------------
 
+#pragma warning(disable : 4189)
 void LoadMapPhase::onEnter() {
     numOfEntities_ = 0;
     numOfEntitiesLoaded_ = 0;

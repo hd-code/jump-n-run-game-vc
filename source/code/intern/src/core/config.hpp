@@ -9,6 +9,8 @@ struct Config {
     static const std::string levelsDir;
     static const std::string screensDir;
     static const std::string textureDir;
+
+    static constexpr int minLoadingTime = 1500;
 };
 
 }

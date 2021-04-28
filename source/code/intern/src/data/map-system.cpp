@@ -85,3 +85,12 @@ EntityIterator MapSystem::end() {
     }
     return map_->end();
 }
+
+// -----------------------------------------------------------------------------
+
+core::AABB MapSystem::getMapSize() {
+    if (map_ == nullptr) {
+        return core::AABB();
+    }
+    return map_->getMapSize();
+}

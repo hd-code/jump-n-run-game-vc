@@ -1,4 +1,5 @@
 #include "game/load-map-phase.hpp"
+#include "core/config.hpp"
 #include "data/load-map-phase.hpp"
 #include "gfx/load-map-phase.hpp"
 #include "logic/load-map-phase.hpp"
@@ -32,7 +33,7 @@ PhaseKind::Enum LoadMapPhase::onRun() {
     bool stay = data::LoadMapPhase::getInstance().onRun();
 
     auto time = clock_.getElapsedTime();
-    if (time.asMilliseconds() < 2000) {
+    if (time.asMilliseconds() < core::Config::minLoadingTime) {
         stay = true;
     }
 
