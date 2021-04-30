@@ -9,12 +9,12 @@ Es ist ein Plattformer geschrieben in C++ mit dem SFML-Framework.
 Es muss lediglich das Git-Repository geklont werden. Danach lässt sich das Projekt mit Visual Studio öffnen und starten.
 
 ```sh
-git clone https://github.com/hd-code/vc.git
+git clone https://github.com/hd-code/jump-n-run-game-vc.git
 ```
 
 Das Projekt kann nur auf Windows mit Visual Studio gebaut und gestartet werden.
 
-Dazu die Projektmappe `project.sln` mit Visual Studio öffnen und die Mappe einmal bauen lassen...
+Dazu die Projektmappe `project.sln` mit Visual Studio öffnen. Die letzten Executables sind mit eingecheckt. das Projekt müsste sich also direkt ausführen lassen.
 
 ## Development
 
@@ -28,7 +28,7 @@ git clone https://github.com/hd-code/vc.git
 cd vc
 
 # beide Git-Server als remote hinzufügen
-git remote set-url --add --push origin https://github.com/hd-code/vc.git
+git remote set-url --add --push origin https://github.com/hd-code/jump-n-run-game-vc.git
 git remote set-url --add --push origin https://source.ai.fh-erfurt.de/ha9384dr/vc.git
 
 # Überprüfen ob es geklappt hat
